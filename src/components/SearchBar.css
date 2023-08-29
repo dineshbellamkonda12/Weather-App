@@ -1,0 +1,43 @@
+/* CSS for the search bar container */
+.searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* CSS for the form container */
+  .form {
+    display: flex;
+    gap: 20px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CSS for the input field */
+  .inputform {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  /* CSS for the search button */
+  .buttonform {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Hover effect for the search button */
+  .buttonform:hover {
+    background-color: #0056b3;
+  }
+  
