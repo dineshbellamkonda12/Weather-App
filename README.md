@@ -1,4 +1,4 @@
-This site was created using React JS
+This site was created using HTML 5, CSS 3 and React JS, Used Open Weather API to get the live weather data.
 
 To be able to view this site live, Please click on below link
 
