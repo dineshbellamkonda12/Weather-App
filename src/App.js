@@ -15,9 +15,7 @@ function App() {
     axios
       .get(url)
       .then((response) => {
-        const { data } = response;
-        console.log('API response:', data);
-        setSearchResults([data]);
+        setSearchResults([response.data]);
         setErrorMessage(null);
       })
       .catch((error) => {
@@ -29,8 +27,8 @@ function App() {
 
   const handleSearch = (query) => {
     const url = query.match(/^\d+(\.\d+)?,\s?\d+(\.\d+)?$/)
-      ? `https://api.openweathermap.org/data/2.5/weather?lat=${query}&APPID=${apiKey}`
-      : `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${apiKey}`;
+      ? `https://api.openweathermap.org/data/2.5/weather?lat=${query}&lon=${query}&appid=${apiKey}`
+      : `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`;
 
     fetchWeatherData(url);
   };
@@ -40,7 +38,7 @@ function App() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${apiKey}`;
+          const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
           fetchWeatherData(url);
         },
         (error) => {
@@ -66,6 +64,11 @@ function App() {
             <p>Feels Like: {kelvinToCelsius(result.main.feels_like)}°C</p>
             <p>Temp_min: {kelvinToCelsius(result.main.temp_min)}°C</p>
             <p>Temp_max: {kelvinToCelsius(result.main.temp_max)}°C</p>
+            <p>Pressure: {result.main.pressure} hPa</p>
+            <p>Humidity: {result.main.humidity}%</p>
+            <p>Wind Speed: {result.wind.speed} m/s</p>
+            <p>Sunrise: {new Date(result.sys.sunrise * 1000).toLocaleTimeString()}</p>
+            <p>Sunset: {new Date(result.sys.sunset * 1000).toLocaleTimeString()}</p>
             <p className="weather-description">Weather: {result.weather[0].description}</p>
           </div>
         ))}
