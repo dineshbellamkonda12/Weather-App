@@ -4,7 +4,7 @@ import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
-  const apiKey = '6a245621503bfcb08400248d491fca20';
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -49,7 +49,7 @@ function App() {
     } else {
       setErrorMessage('Geolocation is not supported by your browser. Please enter a location manually.');
     }
-  }, []);
+  }, [apiKey]);
 
   return (
     <div className='searchbarresults'>
