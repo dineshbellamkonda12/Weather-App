@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import './App.css';
 
+
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
 
