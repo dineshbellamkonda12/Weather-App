@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import './App.css';
+import weatherVideo from './assets/videos/weather.mp4';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className='searchbarresults'>
+      <video src={weatherVideo} id='myVideo' type="video/mp4" autoPlay={true} muted={true} loop={true} width="500" height="300"/>
       <h1>Weather App</h1>
       <SearchBar onSearch={handleSearch} />
       {errorMessage && <p>{errorMessage}</p>}
